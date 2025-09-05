@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "datasetq3"
+version = "0.1.0"
+description = "Load CSV data into BigQuery for Assignment Q3"
+authors = ["omsin <omsin.yrr@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+google-cloud-bigquery = "^3.25.0"
+pandas = "^2.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

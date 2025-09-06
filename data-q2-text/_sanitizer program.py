@@ -1,13 +1,13 @@
 import sys
 from collections import Counter
 
-class TextSanitizer:
+class Sanitizertest:
     def __init__(self, text):
         self.text = text
 
     def sanitize(self):
         self.text = self.text.lower()
-        self.text = self.text.replace("\t", "____")
+        self.text = self.text.replace("\t", "____") 
         self.text = self.text.replace("    ", "____") #ผมแทน 4 space ด้วยเพราะว่าลองไฟล์.txt แล้วบางทีtab โดนมองเป็น4spaceแทน
         return self.text
 
@@ -20,7 +20,7 @@ class TextSanitizer:
 
 def main():
     if len(sys.argv) < 2:
-        print("ใส่ชื่อไฟล์")
+        print("ต้องใส่ชื่อไฟล์")
         sys.exit(1)
 
     source = sys.argv[1]
@@ -30,11 +30,11 @@ def main():
     raw = f.read()
     f.close()
 
-    sanitizer = TextSanitizer(raw)
+    sanitizer = Sanitizertest(raw)
     clean = sanitizer.sanitize()
     stats = sanitizer.stats()
 
-    result = "=== Sanitized Text ===\n" + clean + "\n\n=== Statistics ===\n"
+    result = "ผลลัพธ์หลังsanitizer\n" + clean + "\n\nสถิติตัวอักษร\n"
     for k in sorted(stats.keys()):
         result += f"{k}: {stats[k]}\n"
     print(result)
